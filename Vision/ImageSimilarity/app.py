@@ -58,6 +58,11 @@ def extract(values: Values, api_key: APIKey = Depends(get_api_key)):
                                     topn=int(os.environ['TOPN']))
 
 
+
+@app.get('/')
+def home():
+    return "image-cluster api is running"
+
 # Remove these two lines below for non-debug/production mode
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=5000)
