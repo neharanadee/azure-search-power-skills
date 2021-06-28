@@ -1,9 +1,9 @@
 terraform {
   backend "azurerm" {
-    storage_account_name = "[your storage account name"
-    container_name = "[your storage container name]"
-    key = "[your storage account key"
-    resource_group_name = "[your storage account resource group name]"
+    storage_account_name = "secondstorageaccountneha"
+    container_name = "secondcontainer"
+    key = "bWEtKer9XEPR/Sw9gHIHCd9QdY532udd6CPCBZKG4KUL99lTWUpd2pWNd/dKQMMMMYy1DqLF64YXtOC3shNDYA=="
+    resource_group_name = "testing-powerskill"
   }
   required_version = ">= 0.13"
   required_providers {
@@ -61,7 +61,7 @@ resource "azurerm_app_service" "dockerapp" {
     RESOURCE_GROUP                      = var.resource_group
     IMAGE_FEATURES_FILE                 = var.image_features_file
     TOPN                                = var.topn
-    KEY                                 = "[YourSecretKeyCanBeAnything]"
+    KEY                                 = "YourSecretKeyCanBeAnything"
   }
 
   site_config {
@@ -73,3 +73,25 @@ resource "azurerm_app_service" "dockerapp" {
     type = "SystemAssigned"
   }
 }
+
+#COMMENT these out if you already have an azure cognitive search and service account
+resource "azurerm_search_service" "my_ACS_instance" {
+  name                = "[Name your service instance]" # Can choose on your own and needs to be unique
+  resource_group_name = var.resource_group
+  location            = var.location
+  sku                 = "standard"
+}
+
+resource "azurerm_cognitive_account" "my_cog_service_instance" {
+  name                = "[Name your service instance]" # Can choose on your own and needs to be unique
+  location            = var.location
+  resource_group_name = var.resource_group
+  kind                = "Face"
+
+  sku_name = "S0"
+
+  tags = {
+    Acceptance = "Test"
+  }
+}
+

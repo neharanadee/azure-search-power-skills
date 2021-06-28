@@ -1,4 +1,5 @@
-@baseUrl=http://localhost:5000
+  
+@baseUrl=https://extractionxxpsq.azurewebsites.net
 @apiKey=YourSecretKeyCanBeAnything
 
 GET {{baseUrl}}
@@ -8,4 +9,4 @@ POST {{baseUrl}}/api/extraction
 Ocp-Apim-Subscription-Key: {{apiKey}}
 Content-Type: application/json
 
-< ../data/postman_request.json
+< ../postman_request.json

@@ -4,38 +4,35 @@ variable "app_service_sku" {
 }
 
 variable "docker_registry_url" {
-  description = "[your container registry].azurecr.io"
-  default = ""
+  default= "secondcontainerregistry.azurecr.io"
 }
 
 variable "docker_registry_username" {
-  description = "[your container registry username]"
-  default = ""
+  default = "secondcontainerregistry"
 }
 
 variable "docker_registry_password" {
-  description = "[your container registry password]"
-  default = ""
+  default = "sP7fF8Qljl6D1P6FN+YcAWRDZ6rIb46p"
 }
 
 variable "docker_image" {
   description = "[your docker image name]:[your tag]"
-  default = ""
+  default =  "secondcontainerregistry.azurecr.io/image_similarity_extractor:attempt_9"
 }
 
 variable "resource_group" {
-  description = "This is the name of an existing resource group to deploy to"
-  default = ""
+  description = "testing-powerskill"
+  default = "testing-powerskill"
 }
 
 variable "location" {
-  description = "This is the region of an existing resource group you want to deploy to"
+  description = "eastus2"
   default = "eastus2"
 }
 
 variable "debug" {
   description = "API logging - set to True for verbose logging"
-  default = false
+  default = true
 }
 
 variable "image_features_file" {
