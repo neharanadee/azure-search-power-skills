@@ -12,12 +12,12 @@ variable "docker_registry_username" {
 }
 
 variable "docker_registry_password" {
-  default = "sP7fF8Qljl6D1P6FN+YcAWRDZ6rIb46p"
+  default = ""
 }
 
 variable "docker_image" {
   description = "[your docker image name]:[your tag]"
-  default =  "secondcontainerregistry.azurecr.io/image_similarity_extractor:attempt_9"
+  default =  ""
 }
 
 variable "resource_group" {

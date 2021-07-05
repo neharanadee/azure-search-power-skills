@@ -2,7 +2,7 @@ terraform {
   backend "azurerm" {
     storage_account_name = "secondstorageaccountneha"
     container_name = "secondcontainer"
-    key = "bWEtKer9XEPR/Sw9gHIHCd9QdY532udd6CPCBZKG4KUL99lTWUpd2pWNd/dKQMMMMYy1DqLF64YXtOC3shNDYA=="
+    key = ""
     resource_group_name = "testing-powerskill"
   }
   required_version = ">= 0.13"
@@ -75,23 +75,23 @@ resource "azurerm_app_service" "dockerapp" {
 }
 
 #COMMENT these out if you already have an azure cognitive search and service account
-resource "azurerm_search_service" "my_ACS_instance" {
-  name                = "[Name your service instance]" # Can choose on your own and needs to be unique
-  resource_group_name = var.resource_group
-  location            = var.location
-  sku                 = "standard"
-}
+# resource "azurerm_search_service" "my_ACS_instance" {
+#   name                = "[Name your service instance]" # Can choose on your own and needs to be unique
+#   resource_group_name = var.resource_group
+#   location            = var.location
+#   sku                 = "standard"
+# }
 
-resource "azurerm_cognitive_account" "my_cog_service_instance" {
-  name                = "[Name your service instance]" # Can choose on your own and needs to be unique
-  location            = var.location
-  resource_group_name = var.resource_group
-  kind                = "Face"
+# resource "azurerm_cognitive_account" "my_cog_service_instance" {
+#   name                = "[Name your service instance]" # Can choose on your own and needs to be unique
+#   location            = var.location
+#   resource_group_name = var.resource_group
+#   kind                = "Face"
 
-  sku_name = "S0"
+#   sku_name = "S0"
 
-  tags = {
-    Acceptance = "Test"
-  }
-}
+#   tags = {
+#     Acceptance = "Test"
+#   }
+# }
 
